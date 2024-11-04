@@ -2,24 +2,34 @@
 
 ## How can I use Blender with Python?
 
-It's amazing that Blender has an internal Python editor, but sometimes it can be useful to use a more advanced Python environment like Jupyter notebooks, or VS Code notebooks.
+Blender has a built-in Python editor, but sometimes it’s useful to work in environments like Jupyter notebooks or VS Code notebooks.
 
-There are two ways to use blender in a notebook:  
+There are two ways to use Blender in a notebook:  
 
-  1. **headless-mode**. The Blender Python module "bpy" will be installed from PyPi and the Blender GUI won't open while using bpy in your notebook. It will work even if you don't have a Blender version installed.
-  2. **gui-mode**. Here, we'll us the Blender version installe on your system, so that you can interact with Blender from the GUI and send commands from the notebook.
+1.	Headless Mode: In this mode, you install the Blender Python module bpy from PyPi. The Blender GUI doesn’t open, so you can run it even without a Blender installation.  
+2.	GUI Mode: This mode uses your installed Blender version, so you can work in the Blender GUI while sending commands from the notebook.
 
-## Using in headless-mode
+## Python Package manger UV
 
-We're using the package manager [uv](https://docs.astral.sh/uv/getting-started/installation/).  
-On mac, you can install uv by `curl -LsSf https://astral.sh/uv/install.sh | sh`
+For the installation, we use the package manager [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
-The notebook starts now with:
+The advantage of `uv` is that it automatically manages and caches your environment. You can run the same command multiple times without needing virtual environments or handling Python installations manually.
+
+
+Installation **macOS**:
+`curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+
+Installation **Windows**:
+`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
+
+
+
+## Using Headless Mode
+
+
+To start the notebook, run:
 `uvx --python 3.11 --with bpy==4.2.0 jupyter lab`
-
-The convenient thing about uv: We can run the same command again, and it uses the version that uv cached internally.
-No need to use vitual environments, and also no need to manage the python installation yourself.
-
 
 ![alt text](first_render.png)
 
@@ -34,32 +44,35 @@ No need to use vitual environments, and also no need to manage the python instal
     display(Image(filename="img.png"))
     ```
 
-Note, that **headless-mode will *only* run with Python 3.11. (as of Blender 4.2)
+**Note:** The headless mode will *only* run with Python 3.11 (as of Blender 4.2).
 
-# Using in GUI-mode
+# Using GUI Mode
 
-We first need to install [blender_notebook](https://github.com/cheng-chi/blender_notebook) in order to register the blender kernel to our notebook environment.
+To set up Blender in GUI mode, we first register the Blender kernel with your notebook environment.
 
-Also here, we're using the package manager [uv](https://docs.astral.sh/uv/getting-started/installation/).
+We'll use the package manager [uv](https://docs.astral.sh/uv/getting-started/installation/) for this setup.
 
-On **MacOS**, that's done by
-```
-uvx blender_notebook install --blender-exec="/Applications/Blender.app/Contents/MacOS/Blender"
-uvx --python 3.11 jupyter lab
-``` 
+On **macOS**, run:  
+`uvx blender_notebook install --blender-exec="/Applications/Blender.app/Contents/MacOS/Blender"`
 
+`uvx --python 3.11 jupyter lab`
 
-On **Windows**, that's #TODO: TEST THIS FIRST, MAYBE ADJUST PATH
-```py
-uvx blender_notebook install --blender-exec="C:\Program Files\Blender Foundation\Blender 4.2\blender.exe"
-uvx --python 3.11 jupyter lab
-```
+(under the hood, this is using [blender_notebook](https://github.com/cheng-chi/blender_notebook))
 
-Now you can select the Blender kernel in Jupyter Lab.
+On **Windows**, run:  
+`uvx blender_notebook install --blender-exec="C:\Program Files\Blender Foundation\Blender 4.2\blender.exe"`
 
-Note: in GUI-mode, you can also use other notebook environments, e.g. VS Code notebooks or Saryrn notebooks.
+`uvx --python 3.11 jupyter lab`
+(This is not yet tested)
 
+Once set up, you can select the Blender kernel in Jupyter Lab.
 
-Here's how you can select the Blender Kernel in VS Code notebooks:
-<video controls src="../video.mp4" title="Title"></video>
+**Note**: GUI mode also works with other notebook environments, such as VS Code notebooks and Satyrn notebooks.
+
+Select the Blender kernel in **JupyterLab** like this:
+<video controls src="../jupyterlab_setup.mp4" title="Title"></video>
+
+Select the Blender kernel in **VS Code** like this:
+<video controls src="../vscode_setup.mp4" title="Title"></video>
+
 
