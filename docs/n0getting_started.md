@@ -46,11 +46,11 @@ To start the notebook, run:
 
 **Note:** The headless mode will *only* run with Python 3.11 (as of Blender 4.2).
 
-# Using GUI Mode
+## Using GUI Mode
 
 To set up Blender in GUI mode, we first register the Blender kernel with your notebook environment.
 
-We'll use the package manager [uv](https://docs.astral.sh/uv/getting-started/installation/) for this setup.
+
 
 On **macOS**, run:  
 `uvx blender_notebook install --blender-exec="/Applications/Blender.app/Contents/MacOS/Blender"`
@@ -63,14 +63,16 @@ On **Windows**, run:
 `uvx blender_notebook install --blender-exec="C:\Program Files\Blender Foundation\Blender 4.2\blender.exe"`
 
 `uvx --python 3.11 jupyter lab`
-(This is not yet tested)
+(Windows installation is not yet tested)
 
 Once set up, you can select the Blender kernel in Jupyter Lab.
 
-**Note**: GUI mode also works with other notebook environments, such as VS Code notebooks and Satyrn notebooks.
-
 Select the Blender kernel in **JupyterLab** like this:
 <video controls src="../jupyterlab_setup.mp4" title="Title"></video>
+
+
+**Note**: GUI mode also works with other notebook environments, such as VS Code notebooks and Satyrn notebooks.
+
 
 Select the Blender kernel in **VS Code** like this:
 <video controls src="../vscode_setup.mp4" title="Title"></video>
