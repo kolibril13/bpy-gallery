@@ -1,5 +1,8 @@
-# Bpy Gallery  
+# Bpy Gallery
 
-Welcome to this Documentation, where you'll find curated examples on how to use Blender with python notebooks.
-If you find these resources useful, you're welcome to give a ⭐ a on GitHub : https://github.com/kolibril13/ipyblender-experimental
-You can also support my work by buying me a coffe:
+Welcome to this documentation! 👋  
+Here, you’ll find a collection of curated examples for using Blender within Python notebooks.  
+If you find these resources helpful, feel free to leave a star ⭐ on GitHub:  
+[https://github.com/kolibril13/bpy-gallery](https://github.com/kolibril13/bpy-gallery)
+
+
