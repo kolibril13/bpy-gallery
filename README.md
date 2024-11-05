@@ -1,4 +1,8 @@
-# ipyblender_experimental
+# bpy-gallery
+
+A collection of curated examples for using Blender within Python notebooks.
+
+>  **Note**: This project was initially called ipyblender, but I renamed it to bpy-gallery to reflect that it’s a collection of scripts rather than a package.
 
 <img width="1216" alt="image" src="https://github.com/kolibril13/ipyblender-experimental/assets/44469195/dfe632b1-14eb-45fb-a268-1cd5acb8d262">
 
