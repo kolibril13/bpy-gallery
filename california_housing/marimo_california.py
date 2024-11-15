@@ -6,17 +6,21 @@ app = marimo.App()
 
 @app.cell
 def __():
+    #run with
+    #cd california_housing
+    #uv run marimo edit marimo_california.py 
     import marimo as mo
-
+    import numpy as np
     import polars as pl
     import quak
-    import numpy as np
     import bpy
-    import ipywidgets as widgets
-    from IPython.display import display
 
     blend_file_path = "housing_data_igor.blend"
     bpy.ops.wm.open_mainfile(filepath=blend_file_path)
+
+    bpy.context.scene.render.engine = "BLENDER_EEVEE_NEXT"
+    bpy.context.scene.render.resolution_x = 800
+    bpy.context.scene.render.resolution_y = 500
 
     df = pl.read_csv("a_df.csv")
     reference_frame = pl.read_csv("b_reference_frame.csv")
@@ -34,12 +38,8 @@ def __():
     obj.select_set(True)
     reference_frame.head()
 
-
-
     def render_result():
-        bpy.context.scene.render.engine = "BLENDER_EEVEE_NEXT"
-        bpy.context.scene.render.resolution_x = 800
-        bpy.context.scene.render.resolution_y = 500
+
         bpy.ops.render.render()
         bpy.data.images['Render Result'].save_render(filepath="img.png")
         return mo.image(src="img.png")
@@ -47,7 +47,6 @@ def __():
         blend_file_path,
         bpy,
         df,
-        display,
         mesh,
         mo,
         np,
@@ -57,7 +56,6 @@ def __():
         reference_frame,
         render_result,
         vertices,
-        widgets,
     )
 
 
