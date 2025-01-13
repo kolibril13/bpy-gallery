@@ -587,6 +587,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -813,7 +814,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">'Cube'</span><span class="p">]</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">import bpy
@@ -842,10 +843,10 @@ cube = bpy.data.objects['Cube']</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">anywidget</span>
-<span class="kn">import</span> <span class="nn">traitlets</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">anywidget</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">traitlets</span>
 
-<span class="k">class</span> <span class="nc">CounterWidget</span><span class="p">(</span><span class="n">anywidget</span><span class="o">.</span><span class="n">AnyWidget</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CounterWidget</span><span class="p">(</span><span class="n">anywidget</span><span class="o">.</span><span class="n">AnyWidget</span><span class="p">):</span>
     <span class="n">_esm</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">    function render({ model, el }) {</span>
 <span class="s2">      let button = document.createElement("button");</span>
@@ -950,12 +951,12 @@ widget </div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">update_cube_translation</span><span class="p">(</span><span class="n">translation_value</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_cube_translation</span><span class="p">(</span><span class="n">translation_value</span><span class="p">):</span>
     <span class="n">cube</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">translation_value</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
 <span class="c1"># Function to handle slider value changes</span>
-<span class="k">def</span> <span class="nf">on_slider_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_slider_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
     <span class="n">update_cube_translation</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">'new'</span><span class="p">])</span>
 
 <span class="c1"># Observe the slider</span>
@@ -1001,7 +1002,7 @@ update_cube_translation(widget.value)</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">'Cube'</span><span class="p">]</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-5">import bpy
@@ -1030,10 +1031,10 @@ cube = bpy.data.objects['Cube']</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">anywidget</span>
-<span class="kn">import</span> <span class="nn">traitlets</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">anywidget</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">traitlets</span>
 
-<span class="k">class</span> <span class="nc">HelloWidget</span><span class="p">(</span><span class="n">anywidget</span><span class="o">.</span><span class="n">AnyWidget</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HelloWidget</span><span class="p">(</span><span class="n">anywidget</span><span class="o">.</span><span class="n">AnyWidget</span><span class="p">):</span>
     <span class="n">_esm</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">        import "https://esm.sh/vanilla-colorful@0.7.2";</span>
 
@@ -1155,12 +1156,12 @@ widget2</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">update_cube_translation2</span><span class="p">(</span><span class="n">translation_value</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_cube_translation2</span><span class="p">(</span><span class="n">translation_value</span><span class="p">):</span>
     <span class="n">cube</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">translation_value</span> <span class="o">/</span><span class="mi">100</span> <span class="o">*</span><span class="mi">2</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
 <span class="c1"># Function to handle slider value changes</span>
-<span class="k">def</span> <span class="nf">on_slider_change2</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_slider_change2</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
     <span class="n">update_cube_translation2</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">'new'</span><span class="p">])</span>
 
 <span class="c1"># Observe the slider</span>

@@ -587,6 +587,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -813,10 +814,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
 
-<span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">'Cube'</span><span class="p">]</span>
 
 
@@ -897,12 +898,12 @@ display(widget)</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">update_cube_translation</span><span class="p">(</span><span class="n">translation_value</span><span class="p">):</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_cube_translation</span><span class="p">(</span><span class="n">translation_value</span><span class="p">):</span>
     <span class="n">cube</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">translation_value</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
 <span class="c1"># Function to handle slider value changes</span>
-<span class="k">def</span> <span class="nf">on_slider_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_slider_change</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
     <span class="n">update_cube_translation</span><span class="p">(</span><span class="n">change</span><span class="p">[</span><span class="s1">'new'</span><span class="p">])</span>
 
 <span class="c1"># Observe the slider</span>
