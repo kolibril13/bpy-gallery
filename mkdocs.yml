@@ -7,7 +7,7 @@ nav:
   - Databpy: n2databpy.ipynb
   - Simple data: n2data_simple.ipynb
   - Attributes: n3data_attributes.ipynb
-
+  - Typst: n4_typst_examples.ipynb
 theme:
   name: material
   features:
