@@ -4,6 +4,7 @@ nav:
   - Home: index.md
   - Getting Started: n0getting_started.md
   - Objects: n1objects.ipynb
+  - Databpy: n2databpy.ipynb
   - Simple data: n2data_simple.ipynb
   - Attributes: n3data_attributes.ipynb
 
