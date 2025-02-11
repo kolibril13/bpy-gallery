@@ -9,7 +9,12 @@ There are two ways to use Blender in a notebook:
 1.	Headless Mode: In this mode, you install the Blender Python module bpy from PyPi. The Blender GUI doesn’t open, so you can run it even without a Blender installation.  
 2.	GUI Mode: This mode uses your installed Blender version, so you can work in the Blender GUI while sending commands from the notebook.
 
-## Python Package manger UV
+# WORK IN PROGRESS.
+
+Probably in March 2025 there will be a new guide on how to use Blender w. Jupyter.
+Till then, here's the repo for further installation instructions: https://github.com/Octoframes/bpy_jupyter
+
+<!-- ## Python Package manger UV
 
 For the installation, we use the package manager [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
@@ -75,6 +80,6 @@ Select the Blender kernel in **JupyterLab** like this:
 
 
 Select the Blender kernel in **VS Code** like this:
-<video controls src="../vscode_setup.mp4" title="Title"></video>
+<video controls src="../vscode_setup.mp4" title="Title"></video> -->
 
 
