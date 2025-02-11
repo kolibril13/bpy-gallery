@@ -304,33 +304,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#python-package-manger-uv" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python Package manger UV
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-headless-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using Headless Mode
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-gui-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using GUI Mode
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -479,33 +452,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#python-package-manger-uv" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python Package manger UV
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-headless-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using Headless Mode
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-gui-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using GUI Mode
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -530,44 +476,75 @@
 <li>Headless Mode: In this mode, you install the Blender Python module bpy from PyPi. The Blender GUI doesn’t open, so you can run it even without a Blender installation.  </li>
 <li>GUI Mode: This mode uses your installed Blender version, so you can work in the Blender GUI while sending commands from the notebook.</li>
 </ol>
-<h2 id="python-package-manger-uv">Python Package manger UV</h2>
-<p>For the installation, we use the package manager <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>.</p>
-<p>The advantage of <code>uv</code> is that it automatically manages and caches your environment. You can run the same command multiple times without needing virtual environments or handling Python installations manually.</p>
-<p>Installation <strong>macOS</strong>:
-<code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></p>
-<p>Installation <strong>Windows</strong>:
-<code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></p>
-<h2 id="using-headless-mode">Using Headless Mode</h2>
-<p>To start the notebook, run:
-<code>uvx --python 3.11 --with bpy==4.2.0 jupyter lab</code></p>
-<p><img alt="alt text" src="../first_render.png" /></p>
-<details class="code">
-<summary>Code</summary>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<h1 id="work-in-progress">WORK IN PROGRESS.</h1>
+<p>Probably in March 2025 there will be a new guide on how to use Blender w. Jupyter.
+Till then, here's the repo for further installation instructions: https://github.com/Octoframes/bpy_jupyter</p>
+<!-- ## Python Package manger UV
+
+For the installation, we use the package manager [uv](https://docs.astral.sh/uv/getting-started/installation/).
+
+The advantage of `uv` is that it automatically manages and caches your environment. You can run the same command multiple times without needing virtual environments or handling Python installations manually.
+
+
+Installation **macOS**:
+`curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+
+Installation **Windows**:
+`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
+
+
+
+## Using Headless Mode
+
+
+To start the notebook, run:
+`uvx --python 3.11 --with bpy==4.2.0 jupyter lab`
+
+![alt text](first_render.png)
+
+
+??? Code
+
+    <div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="s2">&quot;Render Result&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">save_render</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;img.png&quot;</span><span class="p">)</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;img.png&quot;</span><span class="p">))</span>
 </span></code></pre></div>
-</details>
-<p><strong>Note:</strong> The headless mode will <em>only</em> run with Python 3.11 (as of Blender 4.2).</p>
-<h2 id="using-gui-mode">Using GUI Mode</h2>
-<p>To set up Blender in GUI mode, we first register the Blender kernel with your notebook environment.</p>
-<p>On <strong>macOS</strong>, run:<br />
-<code>uvx blender_notebook install --blender-exec="/Applications/Blender.app/Contents/MacOS/Blender"</code></p>
-<p><code>uvx --python 3.11 jupyter lab</code></p>
-<p>(under the hood, this is using <a href="https://github.com/cheng-chi/blender_notebook">blender_notebook</a>)</p>
-<p>On <strong>Windows</strong>, run:<br />
-<code>uvx blender_notebook install --blender-exec="C:\Program Files\Blender Foundation\Blender 4.2\blender.exe"</code></p>
-<p><code>uvx --python 3.11 jupyter lab</code>
-(Windows installation is not yet tested)</p>
-<p>Once set up, you can select the Blender kernel in Jupyter Lab.</p>
-<p>Select the Blender kernel in <strong>JupyterLab</strong> like this:</p>
+
+**Note:** The headless mode will *only* run with Python 3.11 (as of Blender 4.2).
+
+## Using GUI Mode
+
+To set up Blender in GUI mode, we first register the Blender kernel with your notebook environment.
+
+
+
+On **macOS**, run:  
+`uvx blender_notebook install --blender-exec="/Applications/Blender.app/Contents/MacOS/Blender"`
+
+`uvx --python 3.11 jupyter lab`
+
+(under the hood, this is using [blender_notebook](https://github.com/cheng-chi/blender_notebook))
+
+On **Windows**, run:  
+`uvx blender_notebook install --blender-exec="C:\Program Files\Blender Foundation\Blender 4.2\blender.exe"`
+
+`uvx --python 3.11 jupyter lab`
+(Windows installation is not yet tested)
+
+Once set up, you can select the Blender kernel in Jupyter Lab.
+
+Select the Blender kernel in **JupyterLab** like this:
 <video controls src="../jupyterlab_setup.mp4" title="Title"></video>
 
-<p><strong>Note</strong>: GUI mode also works with other notebook environments, such as VS Code notebooks and Satyrn notebooks.</p>
-<p>Select the Blender kernel in <strong>VS Code</strong> like this:</p>
-<video controls src="../vscode_setup.mp4" title="Title"></video>
+
+**Note**: GUI mode also works with other notebook environments, such as VS Code notebooks and Satyrn notebooks.
+
+
+Select the Blender kernel in **VS Code** like this:
+<video controls src="../vscode_setup.mp4" title="Title"></video> -->
 
 
 
