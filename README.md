@@ -4,9 +4,11 @@ A collection of curated examples for using Blender within Python notebooks.
 
 >  **Note**: This project was initially called ipyblender, but I renamed it to bpy-gallery to reflect that it’s a collection of scripts rather than a package.
 
-<img width="1216" alt="image" src="https://github.com/kolibril13/ipyblender-experimental/assets/44469195/dfe632b1-14eb-45fb-a268-1cd5acb8d262">
+<img width="800" alt="image" src="https://github.com/kolibril13/ipyblender-experimental/assets/44469195/dfe632b1-14eb-45fb-a268-1cd5acb8d262">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/09d2fde5-58de-4e89-9e97-401266a6b80b">
 
-[Tweet1](https://twitter.com/kolibril13/status/1699790198505353259) , [Tweet2](https://twitter.com/kolibril13/status/1707664498801123773)  
+
+[Tweet1](https://twitter.com/kolibril13/status/1699790198505353259) , [Tweet2](https://twitter.com/kolibril13/status/1707664498801123773) ,  [Tweet3](https://x.com/kolibril13/status/1809922563109257620)  .
 Bringing the blender rendering engine into jupyter notebook.  
 No need to install Blender.  
 Only compatible with **Python 3.11**!
