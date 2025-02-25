@@ -952,13 +952,24 @@ bpy.context.scene.render.resolution_y = 200</div>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="install-packages">Install packages<a class="anchor-link" href="#install-packages">¶</a></h1>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
@@ -971,35 +982,82 @@ bpy.context.scene.render.resolution_y = 200</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">bpy</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1">#Option 1: On MacOS, if uv is installed via homebrew:</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="n">command</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"UV_PYTHON=python3.11"</span><span class="p">,</span>
+    <span class="s2">"/opt/homebrew/bin/uv"</span><span class="p">,</span> <span class="s2">"pip"</span><span class="p">,</span> <span class="s2">"install"</span><span class="p">,</span>
+    <span class="s2">"--prefix"</span><span class="p">,</span> <span class="s2">"/Applications/Blender.app/Contents/Resources/4.3/python/"</span><span class="p">,</span>
+    <span class="s2">"matplotlib"</span>
+<span class="p">]</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">command</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-2">#Option 1: On MacOS, if uv is installed via homebrew:
+import subprocess
+command = [
+    "UV_PYTHON=python3.11",
+    "/opt/homebrew/bin/uv", "pip", "install",
+    "--prefix", "/Applications/Blender.app/Contents/Resources/4.3/python/",
+    "matplotlib"
+]
+subprocess.run(" ".join(command), shell=True)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>Using CPython 3.11.10
+Audited <span class="ansi-bold">1 package</span> in 2ms
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>CompletedProcess(args='UV_PYTHON=python3.11 /opt/homebrew/bin/uv pip install --prefix /Applications/Blender.app/Contents/Resources/4.3/python/ matplotlib', returncode=0)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Option 2: use the Blender Python executable:</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="c1"># Path to Blender's Python executable</span>
-<span class="n">python_executable</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">python_executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"pip"</span><span class="p">,</span> <span class="s2">"install"</span><span class="p">,</span> <span class="s2">"polars"</span><span class="p">])</span>
-    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">python_executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"pip"</span><span class="p">,</span> <span class="s2">"install"</span><span class="p">,</span> <span class="s2">"matplotlib"</span><span class="p">])</span>
-    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">python_executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"pip"</span><span class="p">,</span> <span class="s2">"install"</span><span class="p">,</span> <span class="s2">"databpy"</span><span class="p">])</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Done"</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"An error occurred: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"pip"</span><span class="p">,</span> <span class="s2">"install"</span><span class="p">,</span> <span class="s2">"polars"</span><span class="p">])</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"pip"</span><span class="p">,</span> <span class="s2">"install"</span><span class="p">,</span> <span class="s2">"matplotlib"</span><span class="p">])</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="s2">"pip"</span><span class="p">,</span> <span class="s2">"install"</span><span class="p">,</span> <span class="s2">"databpy"</span><span class="p">])</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">import bpy
+<div class="clipboard-copy-txt" id="cell-3"># Option 2: use the Blender Python executable:
 import subprocess
 import sys
-
-# Path to Blender's Python executable
-python_executable = sys.executable
-try:
-    subprocess.check_call([python_executable, "-m", "pip", "install", "polars"])
-    subprocess.check_call([python_executable, "-m", "pip", "install", "matplotlib"])
-    subprocess.check_call([python_executable, "-m", "pip", "install", "databpy"])
-
-    print("Done")
-except Exception as e:
-    print(f"An error occurred: {e}")</div>
+subprocess.check_call([sys.executable, "-m", "pip", "install", "polars"])
+subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
+subprocess.check_call([sys.executable, "-m", "pip", "install", "databpy"])</div>
 </div>
 </div>
 </div>
@@ -1019,7 +1077,7 @@ except Exception as e:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>
-<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">24.0</span> -&gt; <span class="ansi-green-fg">24.3.1</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">24.0</span> -&gt; <span class="ansi-green-fg">25.0.1</span>
 <span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">/Applications/Blender.app/Contents/Resources/4.3/python/bin/python3.11 -m pip install --upgrade pip</span>
 </pre>
 </div>
@@ -1032,7 +1090,7 @@ Requirement already satisfied: contourpy&gt;=1.0.1 in /Applications/Blender.app/
 Requirement already satisfied: cycler&gt;=0.10 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from matplotlib) (0.12.1)
 Requirement already satisfied: fonttools&gt;=4.22.0 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from matplotlib) (4.55.3)
 Requirement already satisfied: kiwisolver&gt;=1.3.1 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from matplotlib) (1.4.8)
-Requirement already satisfied: numpy&gt;=1.23 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from matplotlib) (1.24.3)
+Requirement already satisfied: numpy&gt;=1.23 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from matplotlib) (1.26.4)
 Requirement already satisfied: packaging&gt;=20.0 in /Users/jan-hendrik/.local/lib/python3.11/site-packages (from matplotlib) (24.1)
 Requirement already satisfied: pillow&gt;=8 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from matplotlib) (11.1.0)
 Requirement already satisfied: pyparsing&gt;=2.3.1 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from matplotlib) (3.2.1)
@@ -1045,7 +1103,7 @@ Requirement already satisfied: six&gt;=1.5 in /Applications/Blender.app/Contents
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>
-<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">24.0</span> -&gt; <span class="ansi-green-fg">24.3.1</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">24.0</span> -&gt; <span class="ansi-green-fg">25.0.1</span>
 <span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">/Applications/Blender.app/Contents/Resources/4.3/python/bin/python3.11 -m pip install --upgrade pip</span>
 </pre>
 </div>
@@ -1053,9 +1111,8 @@ Requirement already satisfied: six&gt;=1.5 in /Applications/Blender.app/Contents
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Requirement already satisfied: databpy in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (0.0.8)
-Requirement already satisfied: numpy&lt;2.0,&gt;=1.24.0 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from databpy) (1.24.3)
-Done
+<pre>Requirement already satisfied: databpy in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (0.0.4)
+Requirement already satisfied: numpy&lt;2.0,&gt;=1.26.0 in /Applications/Blender.app/Contents/Resources/4.3/python/lib/python3.11/site-packages (from databpy) (1.26.4)
 </pre>
 </div>
 </div>
@@ -1063,9 +1120,15 @@ Done
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>
-<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">24.0</span> -&gt; <span class="ansi-green-fg">24.3.1</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">24.0</span> -&gt; <span class="ansi-green-fg">25.0.1</span>
 <span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">/Applications/Blender.app/Contents/Resources/4.3/python/bin/python3.11 -m pip install --upgrade pip</span>
 </pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>0</pre>
 </div>
 </div>
 </div>
@@ -1080,7 +1143,7 @@ Done
 <div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1097,7 +1160,7 @@ Done
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loaded </span><span class="si">{</span><span class="n">length_data</span><span class="si">}</span><span class="s2"> rows"</span><span class="p">)</span>
 <span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">import polars as pl
+<div class="clipboard-copy-txt" id="cell-4">import polars as pl
 url = 'https://raw.githubusercontent.com/kolibril13/ipydrop/refs/heads/main/dino.csv'
 df1 = pl.read_csv(url)
 length_data = len(df1)
@@ -1143,7 +1206,7 @@ df1.head()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [61]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1156,7 +1219,7 @@ df1.head()</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'_mpl-gallery'</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">import matplotlib.pyplot as plt
+<div class="clipboard-copy-txt" id="cell-5">import matplotlib.pyplot as plt
 plt.style.use('_mpl-gallery')</div>
 </div>
 </div>
@@ -1172,7 +1235,7 @@ plt.style.use('_mpl-gallery')</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [62]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1190,7 +1253,7 @@ plt.style.use('_mpl-gallery')</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'equal'</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_values1</span><span class="p">,</span> <span class="n">y_values1</span><span class="p">);</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5"># Extract x and y from the DataFrame
+<div class="clipboard-copy-txt" id="cell-6"># Extract x and y from the DataFrame
 x_values1 = df1['x'] / 10 
 y_values1 = df1['y'] / 10 * 0.8
 
@@ -1223,7 +1286,7 @@ plt.scatter(x_values1, y_values1);</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [63]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1245,7 +1308,7 @@ plt.scatter(x_values1, y_values1);</div>
     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">resolution_x</span> <span class="o">=</span> <span class="mi">300</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">resolution_y</span> <span class="o">=</span> <span class="mi">300</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">def camera_from_above():
+<div class="clipboard-copy-txt" id="cell-7">def camera_from_above():
     camera = bpy.context.scene.camera
     camera.location = (6, 4, 10)  # Position above the XY plane
     camera.rotation_euler = (0, 0, 0)  # Rotate to look at XY plane
@@ -1270,7 +1333,7 @@ plt.scatter(x_values1, y_values1);</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [64]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1288,7 +1351,7 @@ plt.scatter(x_values1, y_values1);</div>
 <span class="n">camera_from_above</span><span class="p">()</span>
 <span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-7">fresh_scene()
+<div class="clipboard-copy-txt" id="cell-8">fresh_scene()
 
 for (x, y) in zip(x_values1,y_values1):    
     bpy.ops.mesh.primitive_uv_sphere_add(radius=0.2, location=(x, y, 0))
@@ -1321,7 +1384,7 @@ render_result()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [65]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1354,7 +1417,7 @@ render_result()</div>
 
 <span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-8">fresh_scene()
+<div class="clipboard-copy-txt" id="cell-9">fresh_scene()
 
 mat = bpy.data.materials.new(name="GreenMaterial")
 mat.diffuse_color = (0, 0, 1, 1)  # Green color (R, G, B, A)
@@ -1420,7 +1483,7 @@ E.g.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [66]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1450,7 +1513,7 @@ E.g.</p>
 <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">node_group_place_spheres</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-9"># option 1: Load the node group to the current blend scene
+<div class="clipboard-copy-txt" id="cell-10"># option 1: Load the node group to the current blend scene
 #TODO Make this it's own utility tool
 import bpy
 # Path to the blend file
@@ -1500,7 +1563,7 @@ UV Sphere
 <div class="jp-InputPrompt jp-InputArea-prompt">In [67]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1521,7 +1584,7 @@ UV Sphere
 <span class="c1">#for node in node_group_place_spheres.nodes:</span>
 <span class="c1">#    print(node.name)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-10"># option 2: Open the compeletely new blend file and access the node group
+<div class="clipboard-copy-txt" id="cell-11"># option 2: Open the compeletely new blend file and access the node group
 #bpy.ops.wm.open_mainfile(filepath="cube_gn_position.blend")
 
 # Access the node group
@@ -1545,7 +1608,7 @@ UV Sphere
 <div class="jp-InputPrompt jp-InputArea-prompt">In [68]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-12">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1586,7 +1649,7 @@ UV Sphere
 <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">resolution_y</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-11">fresh_scene()
+<div class="clipboard-copy-txt" id="cell-12">fresh_scene()
 import mathutils
 import databpy as db
 
@@ -1649,7 +1712,7 @@ render_result()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [69]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-12">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-13">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1663,7 +1726,7 @@ render_result()</div>
 <span class="n">modifier</span><span class="o">.</span><span class="n">node_group</span> <span class="o">=</span> <span class="n">node_group_place_spheres</span>
 <span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-12">modifier = my_point_obj.modifiers.new(name="GeometryNodes", type='NODES')
+<div class="clipboard-copy-txt" id="cell-13">modifier = my_point_obj.modifiers.new(name="GeometryNodes", type='NODES')
 modifier.node_group = node_group_place_spheres
 render_result()</div>
 </div>
@@ -1692,7 +1755,7 @@ render_result()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [70]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-13">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-14">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1705,7 +1768,7 @@ render_result()</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">my_point_obj</span><span class="o">.</span><span class="n">modifiers</span><span class="p">[</span><span class="s2">"GeometryNodes"</span><span class="p">][</span><span class="s2">"Socket_2"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># set radius</span>
 <span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-13">my_point_obj.modifiers["GeometryNodes"]["Socket_2"] = 4 # set radius
+<div class="clipboard-copy-txt" id="cell-14">my_point_obj.modifiers["GeometryNodes"]["Socket_2"] = 4 # set radius
 render_result()</div>
 </div>
 </div>
@@ -1733,7 +1796,7 @@ render_result()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [71]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-14">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-15">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1768,7 +1831,7 @@ render_result()</div>
 <span class="n">camera_from_above</span><span class="p">()</span>
 <span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-14">fresh_scene()
+<div class="clipboard-copy-txt" id="cell-15">fresh_scene()
 
 single_vertex = np.array([(x, y, 0) for x, y in zip(x_values1, y_values1)])
 
@@ -1818,7 +1881,7 @@ render_result()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-15">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-16">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1832,7 +1895,7 @@ render_result()</div>
 
 <span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-15">my_point_obj.modifiers["GeometryNodes"]["Socket_2"] = 0.1  # Set radius
+<div class="clipboard-copy-txt" id="cell-16">my_point_obj.modifiers["GeometryNodes"]["Socket_2"] = 0.1  # Set radius
 
 render_result()</div>
 </div>
@@ -1861,7 +1924,7 @@ render_result()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [73]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-16">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-17">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1874,7 +1937,7 @@ render_result()</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># 💡 Now we can squeeze or change anything in geonodes!</span>
 <span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-16"># 💡 Now we can squeeze or change anything in geonodes!
+<div class="clipboard-copy-txt" id="cell-17"># 💡 Now we can squeeze or change anything in geonodes!
 render_result()</div>
 </div>
 </div>
@@ -1902,7 +1965,7 @@ render_result()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-17">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-18">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1918,7 +1981,7 @@ render_result()</div>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-17"># Also possible to change the data points
+<div class="clipboard-copy-txt" id="cell-18"># Also possible to change the data points
 import pandas as pd
 url = 'https://raw.githubusercontent.com/kolibril13/ipydrop/refs/heads/main/star.csv'
 df = pd.read_csv(url)
@@ -1999,7 +2062,7 @@ df.head()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [75]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-18">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-19">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2015,7 +2078,7 @@ df.head()</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'equal'</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">);</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-18">x_values = df['x'] / 10 
+<div class="clipboard-copy-txt" id="cell-19">x_values = df['x'] / 10 
 y_values = df['y'] / 10 * 0.8
 
 plt.axis('equal');
@@ -2046,7 +2109,7 @@ plt.scatter(x_values, y_values);</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [76]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-19">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-20">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2064,7 +2127,7 @@ plt.scatter(x_values, y_values);</div>
 <span class="n">my_point_obj</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">view_layer</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-19"># Only update the vertex positions without clearing the geometry
+<div class="clipboard-copy-txt" id="cell-20"># Only update the vertex positions without clearing the geometry
 for i, (x, y) in enumerate(zip(x_values, y_values)):
     my_point_obj.data.vertices[i].co = (x, y, 0)
 
@@ -2085,7 +2148,7 @@ bpy.context.view_layer.update()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [77]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-20">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-21">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2097,7 +2160,7 @@ bpy.context.view_layer.update()</div>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">render_result</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-20">render_result()</div>
+<div class="clipboard-copy-txt" id="cell-21">render_result()</div>
 </div>
 </div>
 </div>
@@ -2131,7 +2194,7 @@ bpy.context.view_layer.update()</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-21">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-22">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2143,7 +2206,7 @@ bpy.context.view_layer.update()</div>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-21"></div>
+<div class="clipboard-copy-txt" id="cell-22"></div>
 </div>
 </div>
 </div>
