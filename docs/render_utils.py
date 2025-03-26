@@ -40,7 +40,22 @@ def adjust_camera_to_collection(c, padding_factor=-0.2):
 
 def render_result(width="300pt", collection=None, padding_factor=-0.2):
     if collection is not None:
-        adjust_camera_to_collection(collection, padding_factor)
+        if isinstance(collection, list):
+            # Merge collections temporarily for rendering
+            temp_collection = bpy.data.collections.new("TempRenderCollection")
+            bpy.context.scene.collection.children.link(temp_collection)
+            
+            for c in collection:
+                for obj in c.objects:
+                    temp_collection.objects.link(obj)
+            
+            adjust_camera_to_collection(temp_collection, padding_factor)
+            
+            # Clean up after rendering
+            bpy.context.scene.collection.children.unlink(temp_collection)
+            bpy.data.collections.remove(temp_collection)
+        else:
+            adjust_camera_to_collection(collection, padding_factor)
         
     with tempfile.TemporaryDirectory() as tmpdir:
         output_path = str(Path(tmpdir) / 'img.png')
