@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -829,7 +829,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bbb26135">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8d8bc4cc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -866,7 +866,7 @@ import tempfile</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0fa824f4">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7d1cfe68">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -911,7 +911,7 @@ import tempfile</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0fe1074a">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=49e008d4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -978,7 +978,7 @@ import tempfile</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=17253f39">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a6adee8b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -998,7 +998,22 @@ import tempfile</div>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">render_result</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">"300pt"</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding_factor</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">collection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">adjust_camera_to_collection</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">padding_factor</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="c1"># Merge collections temporarily for rendering</span>
+            <span class="n">temp_collection</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"TempRenderCollection"</span><span class="p">)</span>
+            <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">temp_collection</span><span class="p">)</span>
+            
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+                    <span class="n">temp_collection</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+            
+            <span class="n">adjust_camera_to_collection</span><span class="p">(</span><span class="n">temp_collection</span><span class="p">,</span> <span class="n">padding_factor</span><span class="p">)</span>
+            
+            <span class="c1"># Clean up after rendering</span>
+            <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">temp_collection</span><span class="p">)</span>
+            <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">temp_collection</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">adjust_camera_to_collection</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">padding_factor</span><span class="p">)</span>
         
     <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmpdir</span><span class="p">:</span>
         <span class="n">output_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">)</span> <span class="o">/</span> <span class="s1">'img.png'</span><span class="p">)</span>
@@ -1008,7 +1023,22 @@ import tempfile</div>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-4">def render_result(width="300pt", collection=None, padding_factor=-0.2):
     if collection is not None:
-        adjust_camera_to_collection(collection, padding_factor)
+        if isinstance(collection, list):
+            # Merge collections temporarily for rendering
+            temp_collection = bpy.data.collections.new("TempRenderCollection")
+            bpy.context.scene.collection.children.link(temp_collection)
+            
+            for c in collection:
+                for obj in c.objects:
+                    temp_collection.objects.link(obj)
+            
+            adjust_camera_to_collection(temp_collection, padding_factor)
+            
+            # Clean up after rendering
+            bpy.context.scene.collection.children.unlink(temp_collection)
+            bpy.data.collections.remove(temp_collection)
+        else:
+            adjust_camera_to_collection(collection, padding_factor)
         
     with tempfile.TemporaryDirectory() as tmpdir:
         output_path = str(Path(tmpdir) / 'img.png')
@@ -1021,7 +1051,7 @@ import tempfile</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=984ec55f">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=56703efd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1118,7 +1148,7 @@ import tempfile</div>
     <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
