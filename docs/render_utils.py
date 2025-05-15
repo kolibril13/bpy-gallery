@@ -2,19 +2,29 @@ import bpy
 from IPython.display import Image, display
 from mathutils import Vector
 from pathlib import Path
-from typst_importer.curve_utils import get_curve_collection_bounds
+# from typst_importer.curve_utils import get_curve_collection_bounds
 import tempfile
+from math import radians
 
 def fresh_scene(keep_cube=False):
     bpy.ops.object.select_all(action='DESELECT')
     # Keep only Plane, Camera and Sun
     for obj in bpy.context.scene.objects:
-        if obj.name not in ['Plane', 'Camera', 'Sun']:
+        if obj.name not in ['PlaneBG', 'Camera', 'Sun']:
             obj.select_set(True)
     bpy.ops.object.delete()
     for collection in bpy.data.collections:
         if collection.name != "Collection":
             bpy.data.collections.remove(collection)
+    
+    # Add a light source if it doesn't exist
+    if 'Sun' not in bpy.context.scene.objects:
+        bpy.ops.object.light_add(type='SUN')
+        sun = bpy.context.active_object
+        sun.location = (0, 0, 0)
+        sun.rotation_euler = (radians(204), radians(-133), radians(-67))
+        sun.data.energy = 3
+
 
 def adjust_camera_to_collection(c, padding_factor=-0.2):
     min_p, max_p = get_curve_collection_bounds(c)
