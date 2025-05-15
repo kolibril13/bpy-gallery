@@ -4,6 +4,7 @@ nav:
   - Home: index.md
   - Getting Started: n0getting_started.md
   - Objects: n1objects.ipynb
+  - Use of Python Packages: n2install_uninstall.ipynb
   - Databpy: n2databpy.ipynb
   - Typst: n2typst_examples.ipynb
   - Simple data: n2data_simple.ipynb
