@@ -7,8 +7,8 @@ nav:
   - Use of Python Packages: n2install_uninstall.ipynb
   - Databpy: n2databpy.ipynb
   - Typst: n2typst_examples.ipynb
-  - Simple data: n2data_simple.ipynb
-  - Attributes: n3data_attributes.ipynb
+
+
 theme:
   name: material
   features:
