@@ -287,6 +287,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../n2install_uninstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use of Python Packages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../n2databpy/" class="md-nav__link">
         
   
@@ -336,7 +358,7 @@
   
   
   <span class="md-ellipsis">
-    Simple data
+    DataBpy Example
     
   </span>
   
@@ -839,7 +861,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3a0e4c1c">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ff6802b5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -861,22 +883,24 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mathutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Vector</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typst_importer.curve_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_curve_collection_bounds</span>
+<span class="c1"># from typst_importer.curve_utils import get_curve_collection_bounds</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">radians</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">import bpy
 from IPython.display import Image, display
 from mathutils import Vector
 from pathlib import Path
-from typst_importer.curve_utils import get_curve_collection_bounds
-import tempfile</div>
+# from typst_importer.curve_utils import get_curve_collection_bounds
+import tempfile
+from math import radians</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d0a1b142">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=45a8a259">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -898,30 +922,46 @@ import tempfile</div>
     <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">select_all</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'DESELECT'</span><span class="p">)</span>
     <span class="c1"># Keep only Plane, Camera and Sun</span>
     <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'Plane'</span><span class="p">,</span> <span class="s1">'Camera'</span><span class="p">,</span> <span class="s1">'Sun'</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'PlaneBG'</span><span class="p">,</span> <span class="s1">'Camera'</span><span class="p">,</span> <span class="s1">'Sun'</span><span class="p">]:</span>
             <span class="n">obj</span><span class="o">.</span><span class="n">select_set</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">collections</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">collection</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s2">"Collection"</span><span class="p">:</span>
             <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+    
+    <span class="c1"># Add a light source if it doesn't exist</span>
+    <span class="k">if</span> <span class="s1">'Sun'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+        <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">light_add</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">'SUN'</span><span class="p">)</span>
+        <span class="n">sun</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span>
+        <span class="n">sun</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">sun</span><span class="o">.</span><span class="n">rotation_euler</span> <span class="o">=</span> <span class="p">(</span><span class="n">radians</span><span class="p">(</span><span class="mi">204</span><span class="p">),</span> <span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">133</span><span class="p">),</span> <span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">67</span><span class="p">))</span>
+        <span class="n">sun</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="mi">3</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">def fresh_scene(keep_cube=False):
     bpy.ops.object.select_all(action='DESELECT')
     # Keep only Plane, Camera and Sun
     for obj in bpy.context.scene.objects:
-        if obj.name not in ['Plane', 'Camera', 'Sun']:
+        if obj.name not in ['PlaneBG', 'Camera', 'Sun']:
             obj.select_set(True)
     bpy.ops.object.delete()
     for collection in bpy.data.collections:
         if collection.name != "Collection":
-            bpy.data.collections.remove(collection)</div>
+            bpy.data.collections.remove(collection)
+    
+    # Add a light source if it doesn't exist
+    if 'Sun' not in bpy.context.scene.objects:
+        bpy.ops.object.light_add(type='SUN')
+        sun = bpy.context.active_object
+        sun.location = (0, 0, 0)
+        sun.rotation_euler = (radians(204), radians(-133), radians(-67))
+        sun.data.energy = 3</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b8f35f72">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=67d0fbb1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -988,7 +1028,7 @@ import tempfile</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b0735f65">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f1575299">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1061,7 +1101,7 @@ import tempfile</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bbff866a">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7dec200b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
