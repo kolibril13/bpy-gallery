@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -839,7 +839,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2350f1f1">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=056d57fc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -861,7 +861,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mathutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Vector</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="c1"># from typst_importer.curve_utils import get_curve_collection_bounds</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typst_importer.curve_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_curve_collection_bounds</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">radians</span>
 </pre></div>
@@ -869,7 +869,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 from IPython.display import Image, display
 from mathutils import Vector
 from pathlib import Path
-# from typst_importer.curve_utils import get_curve_collection_bounds
+from typst_importer.curve_utils import get_curve_collection_bounds
 import tempfile
 from math import radians</div>
 </div>
@@ -878,7 +878,7 @@ from math import radians</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=91525490">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=58c9bfc2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -914,6 +914,7 @@ from math import radians</div>
         <span class="n">sun</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">sun</span><span class="o">.</span><span class="n">rotation_euler</span> <span class="o">=</span> <span class="p">(</span><span class="n">radians</span><span class="p">(</span><span class="mi">204</span><span class="p">),</span> <span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">133</span><span class="p">),</span> <span class="n">radians</span><span class="p">(</span><span class="o">-</span><span class="mi">67</span><span class="p">))</span>
         <span class="n">sun</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">energy</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">load_paper_background</span><span class="p">()</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">def fresh_scene(keep_cube=False):
     bpy.ops.object.select_all(action='DESELECT')
@@ -932,14 +933,15 @@ from math import radians</div>
         sun = bpy.context.active_object
         sun.location = (0, 0, 0)
         sun.rotation_euler = (radians(204), radians(-133), radians(-67))
-        sun.data.energy = 3</div>
+        sun.data.energy = 3
+    load_paper_background()</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cd4c1d17">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=59c6bdc5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -957,8 +959,156 @@ from math import radians</div>
 </div>
 </clipboard-copy>
 </div>
+<div class="highlight-ipynb hl-python"><pre><span></span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-3"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4d104e23">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_curve_collection_bounds2</span><span class="p">(</span><span class="n">collection</span><span class="p">):</span>
+    <span class="c1"># get_curve_collection_bounds was somehow broken in original, even it if looks the same as here https://github.com/kolibril13/blender_typst_importer/blob/2f4aaa54134ec00de6f7a5294e33ce46e9ebc792/typst_importer/curve_utils.py</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate the bounding box dimensions of a collection containing curves and/or meshes.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        collection: Blender collection object containing curves and/or meshes</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: ((min_x, min_y, min_z), (max_x, max_y, max_z))</span>
+<span class="sd">        The minimum and maximum coordinates of the bounding box</span>
+<span class="sd">    """</span>
+    <span class="c1"># Initialize bounds</span>
+    <span class="n">min_x</span> <span class="o">=</span> <span class="n">min_y</span> <span class="o">=</span> <span class="n">min_z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+    <span class="n">max_x</span> <span class="o">=</span> <span class="n">max_y</span> <span class="o">=</span> <span class="n">max_z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"-inf"</span><span class="p">)</span>
+
+    <span class="c1"># Get the dependency graph</span>
+    <span class="n">depsgraph</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">evaluated_depsgraph_get</span><span class="p">()</span>
+
+    <span class="c1"># Iterate through objects in collection</span>
+    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">collection</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"CURVE"</span><span class="p">,</span> <span class="s2">"MESH"</span><span class="p">):</span>
+            <span class="c1"># Get evaluated version of the object</span>
+            <span class="n">eval_obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">evaluated_get</span><span class="p">(</span><span class="n">depsgraph</span><span class="p">)</span>
+
+            <span class="c1"># Create mesh from evaluated object</span>
+            <span class="n">temp_mesh</span> <span class="o">=</span> <span class="n">eval_obj</span><span class="o">.</span><span class="n">to_mesh</span><span class="p">()</span>
+
+            <span class="c1"># Calculate bounds using mesh vertices in world space</span>
+            <span class="k">for</span> <span class="n">vert</span> <span class="ow">in</span> <span class="n">temp_mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+                <span class="n">world_vert</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">matrix_world</span> <span class="o">@</span> <span class="n">vert</span><span class="o">.</span><span class="n">co</span>
+                <span class="c1"># Update bounds</span>
+                <span class="n">min_x</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">world_vert</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+                <span class="n">min_y</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_y</span><span class="p">,</span> <span class="n">world_vert</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+                <span class="n">min_z</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_z</span><span class="p">,</span> <span class="n">world_vert</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+                <span class="n">max_x</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_x</span><span class="p">,</span> <span class="n">world_vert</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+                <span class="n">max_y</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_y</span><span class="p">,</span> <span class="n">world_vert</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+                <span class="n">max_z</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_z</span><span class="p">,</span> <span class="n">world_vert</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+
+            <span class="c1"># Clean up temporary mesh data</span>
+            <span class="n">eval_obj</span><span class="o">.</span><span class="n">to_mesh_clear</span><span class="p">()</span>
+
+    <span class="c1"># Check if any curves or meshes were found</span>
+    <span class="k">if</span> <span class="n">min_x</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">):</span>
+        <span class="c1"># Return None to indicate no valid objects found</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">Vector</span><span class="p">((</span><span class="n">min_x</span><span class="p">,</span> <span class="n">min_y</span><span class="p">,</span> <span class="n">min_z</span><span class="p">)),</span> <span class="n">Vector</span><span class="p">((</span><span class="n">max_x</span><span class="p">,</span> <span class="n">max_y</span><span class="p">,</span> <span class="n">max_z</span><span class="p">)))</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-4">def get_curve_collection_bounds2(collection):
+    # get_curve_collection_bounds was somehow broken in original, even it if looks the same as here https://github.com/kolibril13/blender_typst_importer/blob/2f4aaa54134ec00de6f7a5294e33ce46e9ebc792/typst_importer/curve_utils.py
+    """
+    Calculate the bounding box dimensions of a collection containing curves and/or meshes.
+
+    Args:
+        collection: Blender collection object containing curves and/or meshes
+
+    Returns:
+        tuple: ((min_x, min_y, min_z), (max_x, max_y, max_z))
+        The minimum and maximum coordinates of the bounding box
+    """
+    # Initialize bounds
+    min_x = min_y = min_z = float("inf")
+    max_x = max_y = max_z = float("-inf")
+
+    # Get the dependency graph
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+
+    # Iterate through objects in collection
+    for obj in collection.objects:
+        if obj.type in ("CURVE", "MESH"):
+            # Get evaluated version of the object
+            eval_obj = obj.evaluated_get(depsgraph)
+
+            # Create mesh from evaluated object
+            temp_mesh = eval_obj.to_mesh()
+
+            # Calculate bounds using mesh vertices in world space
+            for vert in temp_mesh.vertices:
+                world_vert = obj.matrix_world @ vert.co
+                # Update bounds
+                min_x = min(min_x, world_vert.x)
+                min_y = min(min_y, world_vert.y)
+                min_z = min(min_z, world_vert.z)
+                max_x = max(max_x, world_vert.x)
+                max_y = max(max_y, world_vert.y)
+                max_z = max(max_z, world_vert.z)
+
+            # Clean up temporary mesh data
+            eval_obj.to_mesh_clear()
+
+    # Check if any curves or meshes were found
+    if min_x == float("inf"):
+        # Return None to indicate no valid objects found
+        return None
+
+    return (Vector((min_x, min_y, min_z)), Vector((max_x, max_y, max_z)))</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3675ef01">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">adjust_camera_to_collection</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">padding_factor</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">):</span>
-    <span class="n">min_p</span><span class="p">,</span> <span class="n">max_p</span> <span class="o">=</span> <span class="n">get_curve_collection_bounds</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">min_p</span><span class="p">,</span> <span class="n">max_p</span> <span class="o">=</span> <span class="n">get_curve_collection_bounds2</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
     <span class="n">center</span> <span class="o">=</span> <span class="p">(</span><span class="n">min_p</span> <span class="o">+</span> <span class="n">max_p</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">size</span> <span class="o">=</span> <span class="n">max_p</span> <span class="o">-</span> <span class="n">min_p</span>
     <span class="n">padded_size</span> <span class="o">=</span> <span class="n">size</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">padding_factor</span><span class="p">)</span>
@@ -979,8 +1129,8 @@ from math import radians</div>
     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">resolution_x</span> <span class="o">=</span> <span class="mi">960</span>
     <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">resolution_y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">960</span> <span class="o">/</span> <span class="n">aspect_ratio</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">def adjust_camera_to_collection(c, padding_factor=-0.2):
-    min_p, max_p = get_curve_collection_bounds(c)
+<div class="clipboard-copy-txt" id="cell-5">def adjust_camera_to_collection(c, padding_factor=-0.2):
+    min_p, max_p = get_curve_collection_bounds2(c)
     center = (min_p + max_p) / 2
     size = max_p - min_p
     padded_size = size * (1 + padding_factor)
@@ -1006,7 +1156,7 @@ from math import radians</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d859a462">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=af61e57c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1014,7 +1164,7 @@ from math import radians</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1049,7 +1199,7 @@ from math import radians</div>
         <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="s1">'Render Result'</span><span class="p">]</span><span class="o">.</span><span class="n">save_render</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="n">output_path</span><span class="p">)</span>
         <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">output_path</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">))</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">def render_result(width="300pt", collection=None, padding_factor=-0.2):
+<div class="clipboard-copy-txt" id="cell-6">def render_result(width="300pt", collection=None, padding_factor=-0.2):
     if collection is not None:
         if isinstance(collection, list):
             # Merge collections temporarily for rendering
@@ -1079,7 +1229,7 @@ from math import radians</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e7a325e6">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a7ea7825">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1087,7 +1237,34 @@ from math import radians</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-7"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=072ae4e0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1108,7 +1285,7 @@ from math import radians</div>
         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">def load_paper_background():
+<div class="clipboard-copy-txt" id="cell-8">def load_paper_background():
     path = Path.home() / "projects/bpy-gallery/docs/paper_background.blend"
     filepath = str(path)
     
@@ -1175,10 +1352,10 @@ from math import radians</div>
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
