@@ -2,7 +2,7 @@ import bpy
 from IPython.display import Image, display
 from mathutils import Vector
 from pathlib import Path
-# from typst_importer.curve_utils import get_curve_collection_bounds
+from typst_importer.curve_utils import get_curve_collection_bounds
 import tempfile
 from math import radians
 
@@ -24,10 +24,63 @@ def fresh_scene(keep_cube=False):
         sun.location = (0, 0, 0)
         sun.rotation_euler = (radians(204), radians(-133), radians(-67))
         sun.data.energy = 3
+    load_paper_background()
+
+
+
+
+def get_curve_collection_bounds2(collection):
+    # get_curve_collection_bounds was somehow broken in original, even it if looks the same as here https://github.com/kolibril13/blender_typst_importer/blob/2f4aaa54134ec00de6f7a5294e33ce46e9ebc792/typst_importer/curve_utils.py
+    """
+    Calculate the bounding box dimensions of a collection containing curves and/or meshes.
+
+    Args:
+        collection: Blender collection object containing curves and/or meshes
+
+    Returns:
+        tuple: ((min_x, min_y, min_z), (max_x, max_y, max_z))
+        The minimum and maximum coordinates of the bounding box
+    """
+    # Initialize bounds
+    min_x = min_y = min_z = float("inf")
+    max_x = max_y = max_z = float("-inf")
+
+    # Get the dependency graph
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+
+    # Iterate through objects in collection
+    for obj in collection.objects:
+        if obj.type in ("CURVE", "MESH"):
+            # Get evaluated version of the object
+            eval_obj = obj.evaluated_get(depsgraph)
+
+            # Create mesh from evaluated object
+            temp_mesh = eval_obj.to_mesh()
+
+            # Calculate bounds using mesh vertices in world space
+            for vert in temp_mesh.vertices:
+                world_vert = obj.matrix_world @ vert.co
+                # Update bounds
+                min_x = min(min_x, world_vert.x)
+                min_y = min(min_y, world_vert.y)
+                min_z = min(min_z, world_vert.z)
+                max_x = max(max_x, world_vert.x)
+                max_y = max(max_y, world_vert.y)
+                max_z = max(max_z, world_vert.z)
+
+            # Clean up temporary mesh data
+            eval_obj.to_mesh_clear()
+
+    # Check if any curves or meshes were found
+    if min_x == float("inf"):
+        # Return None to indicate no valid objects found
+        return None
+
+    return (Vector((min_x, min_y, min_z)), Vector((max_x, max_y, max_z)))
 
 
 def adjust_camera_to_collection(c, padding_factor=-0.2):
-    min_p, max_p = get_curve_collection_bounds(c)
+    min_p, max_p = get_curve_collection_bounds2(c)
     center = (min_p + max_p) / 2
     size = max_p - min_p
     padded_size = size * (1 + padding_factor)
@@ -72,6 +125,9 @@ def render_result(width="300pt", collection=None, padding_factor=-0.2):
         bpy.ops.render.render()
         bpy.data.images['Render Result'].save_render(filepath=output_path)
         display(Image(filename=output_path, width=width, height="auto"))
+
+
+
 
 def load_paper_background():
     path = Path.home() / "projects/bpy-gallery/docs/paper_background.blend"
