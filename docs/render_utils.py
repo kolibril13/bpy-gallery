@@ -128,12 +128,14 @@ def render_result(width="300pt", collection=None, padding_factor=-0.2):
 
 
 
-
+# Replace user with real username
 def load_paper_background():
-    path = Path.home() / "projects/bpy-gallery/docs/paper_background.blend"
-    filepath = str(path)
+    blend_path = Path(r"C:\Users\%USER%\...\paper_background.blend")
     
-    with bpy.data.libraries.load(filepath, link=False) as (data_from, data_to):
+    if not blend_path.exists():
+        raise FileNotFoundError(f"Blend file not found: {blend_path}")
+    
+    with bpy.data.libraries.load(str(blend_path), link=False) as (data_from, data_to):
         data_to.objects = data_from.objects
 
     for obj in data_to.objects:
