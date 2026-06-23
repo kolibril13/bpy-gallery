@@ -11,11 +11,11 @@ A collection of curated examples for using Blender within Python notebooks.
 [Tweet1](https://twitter.com/kolibril13/status/1699790198505353259) , [Tweet2](https://twitter.com/kolibril13/status/1707664498801123773) ,  [Tweet3](https://x.com/kolibril13/status/1809922563109257620)  .
 Bringing the blender rendering engine into jupyter notebook.  
 No need to install Blender.  
-Only compatible with **Python 3.11**!
+Only compatible with **Python 3.13**!
 
 ## Installation
 ```
-uv venv --python 3.11   
+uv venv --python 3.13   
 uv pip install bpy ipykernel
 ```
 
