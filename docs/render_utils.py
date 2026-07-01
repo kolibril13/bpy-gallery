@@ -2,7 +2,9 @@ import bpy
 from IPython.display import Image, display
 from mathutils import Vector
 from pathlib import Path
-from typst_importer.curve_utils import get_curve_collection_bounds
+
+from bl_ext.blender_org.typst_importer.curve_utils import get_curve_collection_bounds
+
 import tempfile
 from math import radians
 
