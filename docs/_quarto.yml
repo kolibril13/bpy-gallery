@@ -15,6 +15,7 @@ execute:
 
 website:
   title: "Bpy Gallery"
+  favicon: favicon.svg
   site-url: https://kolibril13.github.io/bpy-gallery/
   page-navigation: true
   search: true
