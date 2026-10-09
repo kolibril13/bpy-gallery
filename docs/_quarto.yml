@@ -46,6 +46,10 @@ website:
           - text: Equations & Code
             href: typst/equations.ipynb
 
+# Hide fresh_scene(...) / render_result(...) lines from code cells
+filters:
+  - hide-helpers.lua
+
 format:
   html:
     theme:
