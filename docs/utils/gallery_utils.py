@@ -1,14 +1,26 @@
-import bpy
-from IPython.display import Image, display
-from mathutils import Vector
-from pathlib import Path
+"""Helpers shared by the docs notebooks: scene reset, camera framing and inline rendering.
 
-from bl_ext.blender_org.typst_importer.curve_utils import get_curve_collection_bounds
+Notebooks make this importable with:
+
+    import sys
+    from pathlib import Path
+
+    sys.path.append(str(Path.home() / "projects/bpy-gallery/docs/utils"))
+    from gallery_utils import ASSETS, fresh_scene, render_result
+"""
 
 import tempfile
 from math import radians
+from pathlib import Path
 
-def fresh_scene(keep_cube=False):
+import bpy
+from IPython.display import Image, display
+from mathutils import Vector
+
+ASSETS = Path(__file__).resolve().parent.parent / "assets"
+
+
+def fresh_scene():
     bpy.ops.object.select_all(action='DESELECT')
     # Keep only Plane, Camera and Sun
     for obj in bpy.context.scene.objects:
@@ -132,9 +144,8 @@ def render_result(width="300pt", collection=None, padding_factor=-0.2):
 
 
 def load_paper_background():
-    path = Path.home() / "projects/bpy-gallery/docs/paper_background.blend"
-    filepath = str(path)
-    
+    filepath = str(ASSETS / "paper_background.blend")
+
     with bpy.data.libraries.load(filepath, link=False) as (data_from, data_to):
         data_to.objects = data_from.objects
 

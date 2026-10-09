@@ -19,3 +19,4 @@ test.png
 *.png
 
 site/
+.cache

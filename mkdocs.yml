@@ -2,12 +2,20 @@ site_name: Bpy Gallery
 
 nav:
   - Home: index.md
-  - Getting Started: n0getting_started.md
-  - Objects: n1objects.ipynb
-  - Use of Python Packages: n2install_uninstall.ipynb
-  - Databpy 1: n3databpy1.ipynb
-  - Databpy 2: n3databpy2.ipynb
-  - Typst: n4typst_examples.ipynb
+  - Getting Started: getting-started.md
+  - Basics:
+      - Objects, Materials & Rendering: basics/objects.ipynb
+      - Python Packages: basics/python-packages.ipynb
+  - Databpy:
+      - Points & Geometry Nodes: databpy/geometry-nodes.ipynb
+      - Attributes: databpy/attributes.ipynb
+  - Typst:
+      - Equations & Code: typst/equations.ipynb
+
+# Files the notebooks load at runtime; not part of the published site
+exclude_docs: |
+  assets/
+  utils/
 
 
 theme:
