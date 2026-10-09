@@ -16,8 +16,6 @@ execute:
 website:
   title: "Bpy Gallery"
   site-url: https://kolibril13.github.io/bpy-gallery/
-  repo-url: https://github.com/kolibril13/bpy-gallery
-  repo-actions: [source, issue]
   page-navigation: true
   search: true
   navbar:
