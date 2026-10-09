@@ -9,11 +9,12 @@ If you find these resources helpful, feel free to leave a star ⭐ on GitHub:
 
 ```
 docs/
+├── _quarto.yml  # site config and sidebar
 ├── index.md, getting-started.md
 ├── basics/      # objects, materials, render engines, installing packages
 ├── databpy/     # point clouds, geometry nodes and attributes with databpy
 ├── typst/       # typst equations and code blocks
-├── assets/      # .blend files and textures loaded by the notebooks
+├── assets/      # .blend files, textures and data loaded by the notebooks
 └── utils/
     └── gallery_utils.py   # fresh_scene(), render_result(), ASSETS
 ```

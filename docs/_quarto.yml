@@ -1,0 +1,58 @@
+project:
+  type: website
+  output-dir: _site
+  # Only these pages are part of the site; assets/ and utils/ are loaded by the notebooks at runtime
+  render:
+    - index.md
+    - getting-started.md
+    - basics/*.ipynb
+    - databpy/*.ipynb
+    - typst/*.ipynb
+
+# Notebooks run inside Blender, so the site shows their saved outputs instead of executing them
+execute:
+  enabled: false
+
+website:
+  title: "Bpy Gallery"
+  site-url: https://kolibril13.github.io/bpy-gallery/
+  repo-url: https://github.com/kolibril13/bpy-gallery
+  repo-actions: [source, issue]
+  page-navigation: true
+  search: true
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/kolibril13/bpy-gallery
+  sidebar:
+    style: docked
+    contents:
+      - text: Home
+        href: index.md
+      - text: Getting Started
+        href: getting-started.md
+      - section: Basics
+        contents:
+          - text: Objects, Materials & Rendering
+            href: basics/objects.ipynb
+          - text: Python Packages
+            href: basics/python-packages.ipynb
+      - section: Databpy
+        contents:
+          - text: Points & Geometry Nodes
+            href: databpy/geometry-nodes.ipynb
+          - text: Attributes
+            href: databpy/attributes.ipynb
+      - section: Typst
+        contents:
+          - text: Equations & Code
+            href: typst/equations.ipynb
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [darkly, theme.scss]
+    toc: true
+    code-copy: true
+    code-overflow: wrap

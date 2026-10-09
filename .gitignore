@@ -20,3 +20,7 @@ test.png
 
 site/
 .cache
+
+# Quarto
+_site/
+.quarto/

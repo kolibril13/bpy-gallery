@@ -20,17 +20,14 @@ uv pip install bpy ipykernel
 ```
 
 ## Documentation
+The docs are a [Quarto](https://quarto.org) website in `docs/`. Notebooks are shown with their saved outputs (they are not executed).
 ```
-develop:
-uvx --with mkdocs-material --with mkdocs-jupyter mkdocs serve
-deploy:
-uvx --with mkdocs-material --with mkdocs-jupyter mkdocs gh-deploy --force
+preview:
+quarto preview docs
+build:
+quarto render docs
 ```
-
-
-
-
-
+Pushing to `main` publishes the site to GitHub Pages via `.github/workflows/docs.yml`.
 
 # Funding
 
