@@ -20,17 +20,21 @@ from mathutils import Vector
 ASSETS = Path(__file__).resolve().parent.parent / "assets"
 
 
-def fresh_scene():
+def fresh_scene(paper_background=False):
+    """Delete everything except Camera and Sun, optionally adding the paper background plane."""
     bpy.ops.object.select_all(action='DESELECT')
-    # Keep only Plane, Camera and Sun
     for obj in bpy.context.scene.objects:
-        if obj.name not in ['PlaneBG', 'Camera', 'Sun']:
+        if obj.name not in ['Camera', 'Sun']:
             obj.select_set(True)
     bpy.ops.object.delete()
     for collection in bpy.data.collections:
         if collection.name != "Collection":
             bpy.data.collections.remove(collection)
-    
+
+    # A previously imported camera (e.g. from donut.blend) may have been deleted above
+    if 'Camera' in bpy.context.scene.objects:
+        bpy.context.scene.camera = bpy.context.scene.objects['Camera']
+
     # Add a light source if it doesn't exist
     if 'Sun' not in bpy.context.scene.objects:
         bpy.ops.object.light_add(type='SUN')
@@ -38,7 +42,9 @@ def fresh_scene():
         sun.location = (0, 0, 0)
         sun.rotation_euler = (radians(204), radians(-133), radians(-67))
         sun.data.energy = 3
-    load_paper_background()
+
+    if paper_background:
+        load_paper_background()
 
 
 
